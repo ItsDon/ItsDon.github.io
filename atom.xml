@@ -37,4 +37,31 @@
     
   </entry>
   
+  <entry>
+    <title>使用Hexo搭建博客</title>
+    <link href="http://yoursite.com/2018/03/30/Hexo%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2018/03/30/Hexo搭建GitHub博客/</id>
+    <published>2018-03-29T16:00:00.000Z</published>
+    <updated>2018-03-30T08:00:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="试用Hexo搭建博客"><a href="#试用Hexo搭建博客" class="headerlink" title="试用Hexo搭建博客"></a>试用Hexo搭建博客</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;试用Hexo搭建博客&quot;&gt;&lt;a href=&quot;#试用Hexo搭建博客&quot; class=&quot;headerlink&quot; title=&quot;试用Hexo搭建博客&quot;&gt;&lt;/a&gt;试用Hexo搭建博客&lt;/h2&gt;
+      
+    
+    </summary>
+    
+      <category term="写作" scheme="http://yoursite.com/categories/%E5%86%99%E4%BD%9C/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
+    
+  </entry>
+  
 </feed>
