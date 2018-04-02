@@ -42,9 +42,9 @@
     <link href="http://yoursite.com/2018/03/30/Hexo%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2018/03/30/Hexo搭建GitHub博客/</id>
     <published>2018-03-29T16:00:00.000Z</published>
-    <updated>2018-03-30T08:13:12.000Z</updated>
+    <updated>2018-04-02T00:52:25.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>安装 <code>hexo</code>之前需要先安装<code>git</code>和<code>node.js</code>,详细安装见<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo官网</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>安装 <code>hexo</code>之前需要先安装<code>git</code>和<code>node.js</code>,详细安装见<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo官网</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure><p>经过以上步骤的操作，就可以在浏览器中查看静态的blog模版，默系统认分配4000端口，完整地址：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p><h3 id="配置站点-config-yml文件"><a href="#配置站点-config-yml文件" class="headerlink" title="配置站点_config.yml文件"></a>配置站点_config.yml文件</h3><p>使用<code>git</code>将站点部署到远程仓库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:ItsDon/ItsDon.github.io.git</span><br></pre></td></tr></table></figure><p>然后执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
