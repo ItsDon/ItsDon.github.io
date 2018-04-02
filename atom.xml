@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-02T14:03:02.000Z</updated>
+  <updated>2018-04-02T14:07:02.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,14 @@
     <link href="http://yoursite.com/2018/04/02/Upgrade-Android-Studio/"/>
     <id>http://yoursite.com/2018/04/02/Upgrade-Android-Studio/</id>
     <published>2018-04-02T13:50:23.000Z</published>
-    <updated>2018-04-02T14:03:02.000Z</updated>
+    <updated>2018-04-02T14:07:02.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Android Studio版本升级操作流程如下：</p><h4 id="升级前"><a href="#升级前" class="headerlink" title="升级前"></a>升级前</h4><p><img src="images/upgrade-as-1.png" alt="image1"></p>]]></content>
+    <content type="html"><![CDATA[<p>Android Studio版本升级操作流程如下：</p><h4 id="升级前"><a href="#升级前" class="headerlink" title="升级前"></a>升级前</h4><p><img src="/images/upgrade-as-1.png" alt="image1"></p><a id="more"></a><p><img src="/images/upgrade-as-2.png" alt="image2"><br><img src="/images/upgrade-as-3.png" alt="image3"></p><h4 id="升级后"><a href="#升级后" class="headerlink" title="升级后"></a>升级后</h4><p><img src="/images/upgrade-as-4.png" alt="image4"><br><img src="/images/upgrade-as-5.png" alt="image5"></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;Android Studio版本升级操作流程如下：&lt;/p&gt;
-&lt;h4 id=&quot;升级前&quot;&gt;&lt;a href=&quot;#升级前&quot; class=&quot;headerlink&quot; title=&quot;升级前&quot;&gt;&lt;/a&gt;升级前&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;images/upgrade-as-1.png
-      
+      &lt;p&gt;Android Studio版本升级操作流程如下：&lt;/p&gt;
+&lt;h4 id=&quot;升级前&quot;&gt;&lt;a href=&quot;#升级前&quot; class=&quot;headerlink&quot; title=&quot;升级前&quot;&gt;&lt;/a&gt;升级前&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;/images/upgrade-as-1.png&quot; alt=&quot;image1&quot;&gt;&lt;/p&gt;
     
     </summary>
     
