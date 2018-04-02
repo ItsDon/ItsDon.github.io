@@ -371,6 +371,11 @@ height:50vh;
 <h3 id="配置站点-config-yml文件"><a href="#配置站点-config-yml文件" class="headerlink" title="配置站点_config.yml文件"></a>配置站点_config.yml文件</h3><p>使用<code>git</code>将站点部署到远程仓库</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:ItsDon/ItsDon.github.io.git</span><br></pre></td></tr></table></figure>
 <p>然后执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后，就可以在<code>_posts</code>目录下添加markdown文件作为每一篇博客，通过以下语句来生成和部署我们的静态站点</p>
+<p>清空缓存,即删除<code>public</code>目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure></p>
+<p>重新生成<code>public</code>目录，该目录下的放的就是博客所有的页面及相关的<code>css</code> ，<code>js</code>等<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></p>
+<p>通过<code>git</code>将代码部署到远端仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></p>
+<h3 id="更换theme"><a href="#更换theme" class="headerlink" title="更换theme"></a>更换theme</h3><p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo官网</a>提供了大量的theme样式，</p>
 
     </article>
     <!-- 前后页  -->
@@ -499,7 +504,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo"><span class="toc-number">1.</span> <span class="toc-text">Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置站点-config-yml文件"><span class="toc-number">1.1.</span> <span class="toc-text">配置站点_config.yml文件</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo"><span class="toc-number">1.</span> <span class="toc-text">Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置站点-config-yml文件"><span class="toc-number">1.1.</span> <span class="toc-text">配置站点_config.yml文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换theme"><span class="toc-number">1.2.</span> <span class="toc-text">更换theme</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
