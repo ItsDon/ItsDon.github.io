@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-02T11:35:47.000Z</updated>
+  <updated>2018-04-02T11:37:44.469Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>排序测试22</title>
+    <link href="http://yoursite.com/2018/04/02/%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2018/04/02/排序/</id>
+    <published>2018-04-02T11:37:34.000Z</published>
+    <updated>2018-04-02T11:37:44.469Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="写作" scheme="http://yoursite.com/categories/%E5%86%99%E4%BD%9C/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>排序测试</title>
