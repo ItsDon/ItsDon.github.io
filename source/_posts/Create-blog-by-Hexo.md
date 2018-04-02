@@ -1,19 +1,19 @@
 ---
-title: 使用Hexo搭建博客
+title: 基于Hexo搭建Github博客
 author: Don
-date: 2018-3-30
+date: 2018-3-30 17:23:23
 tags:
     - Hexo
     - Github
 categories:
-    - 写作
+    - Tech
 ---
 
-## Hexo
+### Hexo
 
 安装 `hexo`之前需要先安装`git`和`node.js`,详细安装见[Hexo官网](https://hexo.io/)
 
-``` 
+```
 npm install hexo-cli -g
 hexo init blog
 cd blog
@@ -28,7 +28,7 @@ hexo server
 
 使用`git`将站点部署到远程仓库
 
-```
+``` 
 deploy:
   type: git
   repo: git@github.com:ItsDon/ItsDon.github.io.git
@@ -60,7 +60,7 @@ hexo g
 hexo deploy
 
 ```
-
+ <!-- more -->
 
 ### 更换theme
 
