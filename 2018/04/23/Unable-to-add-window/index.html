@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="详细的异常logBadTokenException 发生场景   在异步任务执行完成后，调用了show dialog. 原因分析当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 `new Dialog(context)`所需的contex已不复存在。 解决办法在调用dialog的时候判断activity是否isFinishing() 123if(!isFinishin">
+<meta name="description" content="详细的异常log 发生场景   在异步任务执行完成后，调用了show dialog. 原因分析当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 `new Dialog(context)`所需的contex已不复存在。 解决办法在调用dialog的时候判断activity是否isFinishing() 123if(!isFinishing())&amp;#123;    sho">
 <meta name="keywords" content="Exception,Dialog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WindowManager&amp;BadTokenException:Unable to add window -- Token">
 <meta property="og:url" content="http://yoursite.com/2018/04/23/Unable-to-add-window/index.html">
 <meta property="og:site_name" content="Don">
-<meta property="og:description" content="详细的异常logBadTokenException 发生场景   在异步任务执行完成后，调用了show dialog. 原因分析当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 `new Dialog(context)`所需的contex已不复存在。 解决办法在调用dialog的时候判断activity是否isFinishing() 123if(!isFinishin">
+<meta property="og:description" content="详细的异常log 发生场景   在异步任务执行完成后，调用了show dialog. 原因分析当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 `new Dialog(context)`所需的contex已不复存在。 解决办法在调用dialog的时候判断activity是否isFinishing() 123if(!isFinishing())&amp;#123;    sho">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-04-23T06:44:40.960Z">
+<meta property="og:image" content="http://yoursite.com/images/BTE.jpep">
+<meta property="og:updated_time" content="2018-04-23T06:47:14.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WindowManager&amp;BadTokenException:Unable to add window -- Token">
-<meta name="twitter:description" content="详细的异常logBadTokenException 发生场景   在异步任务执行完成后，调用了show dialog. 原因分析当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 `new Dialog(context)`所需的contex已不复存在。 解决办法在调用dialog的时候判断activity是否isFinishing() 123if(!isFinishin">
+<meta name="twitter:description" content="详细的异常log 发生场景   在异步任务执行完成后，调用了show dialog. 原因分析当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 `new Dialog(context)`所需的contex已不复存在。 解决办法在调用dialog的时候判断activity是否isFinishing() 123if(!isFinishing())&amp;#123;    sho">
+<meta name="twitter:image" content="http://yoursite.com/images/BTE.jpep">
 
 
 
@@ -414,7 +416,7 @@
       
 
       
-        <h4 id="详细的异常log"><a href="#详细的异常log" class="headerlink" title="详细的异常log"></a>详细的异常log</h4><p><a href="/images/BTE.jpep">BadTokenException</a></p>
+        <h4 id="详细的异常log"><a href="#详细的异常log" class="headerlink" title="详细的异常log"></a>详细的异常log</h4><p><img src="/images/BTE.jpep" alt="BadTokenException"></p>
 <h4 id="发生场景"><a href="#发生场景" class="headerlink" title="发生场景"></a>发生场景</h4><p>   在异步任务执行完成后，调用了show dialog.</p>
 <h4 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h4><pre><code>当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 `new Dialog(context)`所需的contex已不复存在。
 </code></pre><h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><pre><code>在调用dialog的时候判断activity是否isFinishing()
