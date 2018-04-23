@@ -43,6 +43,26 @@
   </entry>
   
   <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/04/02/Unable-to-add-window/"/>
+    <id>http://yoursite.com/2018/04/02/Unable-to-add-window/</id>
+    <published>2018-04-02T14:25:23.000Z</published>
+    <updated>2018-04-23T06:09:17.501Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="Tech" scheme="http://yoursite.com/categories/Tech/"/>
+    
+    
+      <category term="Exception" scheme="http://yoursite.com/tags/Exception/"/>
+    
+      <category term="Dialog" scheme="http://yoursite.com/tags/Dialog/"/>
+    
+  </entry>
+  
+  <entry>
     <title>git 常用命令</title>
     <link href="http://yoursite.com/2018/04/02/Git%20common/"/>
     <id>http://yoursite.com/2018/04/02/Git common/</id>
