@@ -321,7 +321,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/23/Unable-to-add-window/" itemprop="url">WindowManager&BadTokenException:Unable to add window -- Token</a></h1>
+                <a class="post-title-link" href="/2018/04/23/Unable-to-add-window/" itemprop="url">WindowManager&BadTokenException:Unable to add window</a></h1>
         
 
         <div class="post-meta">
@@ -384,7 +384,7 @@
 
           
           
-             <span id="/2018/04/23/Unable-to-add-window/" class="leancloud_visitors" data-flag-title="WindowManager&BadTokenException:Unable to add window -- Token">
+             <span id="/2018/04/23/Unable-to-add-window/" class="leancloud_visitors" data-flag-title="WindowManager&BadTokenException:Unable to add window">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -417,7 +417,7 @@
       
         
           
-            <h4 id="详细的异常log"><a href="#详细的异常log" class="headerlink" title="详细的异常log"></a>详细的异常log</h4><p><img src="/images/BTE.jpep" alt="BadTokenException"></p>
+            <h4 id="详细的异常log"><a href="#详细的异常log" class="headerlink" title="详细的异常log"></a>详细的异常log</h4><p><img src="/images/BTE.jpeg" alt="BadTokenException"></p>
 <h4 id="发生场景"><a href="#发生场景" class="headerlink" title="发生场景"></a>发生场景</h4><p>   在异步任务执行完成后，调用了show dialog.</p>
 <h4 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h4><p>当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 <code>new Dialog(context)</code>所需的contex已不复存在。</p>
 <h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>在调用dialog的时候判断activity是否isFinishing()<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!isFinishing())&#123;</span><br><span class="line">    showDialog();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
