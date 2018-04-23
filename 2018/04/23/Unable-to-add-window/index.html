@@ -88,7 +88,7 @@
 <meta property="og:description" content="详细的异常log 发生场景   在异步任务执行完成后，调用了show dialog. 原因分析当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 new Dialog(context)所需的contex已不复存在。 解决办法在调用dialog的时候判断activity是否isFinishing()    123if(!isFinishing())&amp;#123;    sh">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://yoursite.com/images/BTE.jpeg">
-<meta property="og:updated_time" content="2018-04-23T06:58:21.000Z">
+<meta property="og:updated_time" content="2018-04-23T07:00:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WindowManager&amp;BadTokenException:Unable to add window">
 <meta name="twitter:description" content="详细的异常log 发生场景   在异步任务执行完成后，调用了show dialog. 原因分析当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 new Dialog(context)所需的contex已不复存在。 解决办法在调用dialog的时候判断activity是否isFinishing()    123if(!isFinishing())&amp;#123;    sh">
@@ -420,9 +420,60 @@
 <h4 id="发生场景"><a href="#发生场景" class="headerlink" title="发生场景"></a>发生场景</h4><p>   在异步任务执行完成后，调用了show dialog.</p>
 <h4 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h4><p>当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 <code>new Dialog(context)</code>所需的contex已不复存在。</p>
 <h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>在调用dialog的时候判断activity是否isFinishing()<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!isFinishing())&#123;</span><br><span class="line">    showDialog();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<pre><code>&lt;!-- more --&gt;
-</code></pre><h4 id="问题详细分析"><a href="#问题详细分析" class="headerlink" title="问题详细分析"></a>问题详细分析</h4><p>网上找到了一篇Blog,对这种情况进行了简洁明了的说明，内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">Android – Displaying Dialogs From Background Threads</span><br><span class="line"></span><br><span class="line">Having threads to do some heavy lifting and long processing in the background is pretty standard stuff. Very often you would want to notify or prompt the user after the background task has finished by displaying a Dialog.</span><br><span class="line"></span><br><span class="line">The displaying of the Dialog has to happen on the UI thread, so you would do that either in the Handler object for the thread or in the onPostExecute method of an AsyncTask (which is a thread as well, just an easier way of implementing it). That is a textbook way of doing this and you would think that pretty much nothing wrong could go with this.</span><br><span class="line"></span><br><span class="line">Surprisingly I found out that something CAN actually go wrong with this. After Google updated the Android Market and started giving crash reports to the developers I received the following exception:</span><br><span class="line"></span><br><span class="line">android.view.WindowManager$BadTokenException: Unable to add window — token android.os.BinderProxy@447a6748 is not valid; is your activity running?</span><br><span class="line">at android.view.ViewRoot.setView(ViewRoot.java:468)</span><br><span class="line">at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:177)</span><br><span class="line">at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:91)</span><br><span class="line">at android.view.Window$LocalWindowManager.addView(Window.java:424)</span><br><span class="line">at android.app.Dialog.show(Dialog.java:239)</span><br><span class="line">at android.app.Activity.showDialog(Activity.java:2488)</span><br><span class="line">…</span><br><span class="line">at android.os.Handler.dispatchMessage(Handler.java:99)</span><br><span class="line">…</span><br><span class="line"></span><br><span class="line">I only got a couple of these exceptions from thousands of installs, so I knew that was not anything that happens regularly or that it was easy to replicate.</span><br><span class="line"></span><br><span class="line">Looking at the stack trace above it gives us a pretty good idea why it failed. It started in the Handler object, which naturally was called by a background thread after it finished its processing. The Handler instance tried to show a Dialog and before it could show it, it tried to set the View for it and then it failed with:</span><br><span class="line"></span><br><span class="line">android.view.WindowManager$BadTokenException: Unable to add window — token android.os.BinderProxy@447a6748 is not valid; is your activity running?</span><br><span class="line"></span><br><span class="line">The 447a6748 number is just a memory address of an object that no longer exists.</span><br><span class="line"></span><br><span class="line">Note- do not get hung up on the exact number. It would be different with every execution.</span><br><span class="line"></span><br><span class="line">Now we know why the application crashed, the only thing left is to figure out what caused it?</span><br><span class="line"></span><br><span class="line">We know that background threads execute independently of the main UI thread. That means that the user could be interacting with the application during the time that the thread is doing its work under the covers. Well, what happens if the user hits the “Back” button on the device while the background thread is running and what happens to the Dialog that this thread is supposed to show? Well, if the timing is right the application will most likely crash with the above described error.</span><br><span class="line"></span><br><span class="line">In other words what happens is that the Activity will be going through its destruction when the background thread finishes its work and tries to show a Dialog.</span><br><span class="line"></span><br><span class="line">In this case it is almost certain that this should have been handled by the Virtual Machine. It should have recognized the fact that the Activity is in the process of finishing and not even attempted to show the Dialog. This is an oversight of the Google developers and it will probably be fixed some time in the future, but in the meantime the burden is on us to take care of this.</span><br><span class="line"></span><br><span class="line">The fix to this is pretty simple. Just test if the Activity is going through its finishing phase before displaying the Dialog:</span><br><span class="line"></span><br><span class="line">private Handler myHandler = new Handler() &#123;</span><br><span class="line">  @Override</span><br><span class="line">  public void handleMessage(Message msg) &#123;</span><br><span class="line">    switch (msg.what) &#123;</span><br><span class="line">      case DISPLAY_DLG:</span><br><span class="line">        if (!isFinishing()) &#123;</span><br><span class="line">        showDialog(MY_DIALOG);</span><br><span class="line">        &#125;</span><br><span class="line">      break;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+ <a id="more"></a>
+<h4 id="问题详细分析"><a href="#问题详细分析" class="headerlink" title="问题详细分析"></a>问题详细分析</h4><p>网上找到了一篇Blog,对这种情况进行了简洁明了的说明，内容如下</p>
+<pre><code>Android – Displaying Dialogs From Background Threads
 
+Having threads to do some heavy lifting and long processing in the background is pretty standard stuff. Very often you would want to notify or prompt the user after the background task has finished by displaying a Dialog.
+
+The displaying of the Dialog has to happen on the UI thread, so you would do that either in the Handler object for the thread or in the onPostExecute method of an AsyncTask (which is a thread as well, just an easier way of implementing it). That is a textbook way of doing this and you would think that pretty much nothing wrong could go with this.
+
+Surprisingly I found out that something CAN actually go wrong with this. After Google updated the Android Market and started giving crash reports to the developers I received the following exception:
+
+android.view.WindowManager$BadTokenException: Unable to add window — token android.os.BinderProxy@447a6748 is not valid; is your activity running?
+at android.view.ViewRoot.setView(ViewRoot.java:468)
+at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:177)
+at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:91)
+at android.view.Window$LocalWindowManager.addView(Window.java:424)
+at android.app.Dialog.show(Dialog.java:239)
+at android.app.Activity.showDialog(Activity.java:2488)
+…
+at android.os.Handler.dispatchMessage(Handler.java:99)
+…
+
+I only got a couple of these exceptions from thousands of installs, so I knew that was not anything that happens regularly or that it was easy to replicate.
+
+Looking at the stack trace above it gives us a pretty good idea why it failed. It started in the Handler object, which naturally was called by a background thread after it finished its processing. The Handler instance tried to show a Dialog and before it could show it, it tried to set the View for it and then it failed with:
+
+android.view.WindowManager$BadTokenException: Unable to add window — token android.os.BinderProxy@447a6748 is not valid; is your activity running?
+
+The 447a6748 number is just a memory address of an object that no longer exists.
+
+Note- do not get hung up on the exact number. It would be different with every execution.
+
+Now we know why the application crashed, the only thing left is to figure out what caused it?
+
+We know that background threads execute independently of the main UI thread. That means that the user could be interacting with the application during the time that the thread is doing its work under the covers. Well, what happens if the user hits the “Back” button on the device while the background thread is running and what happens to the Dialog that this thread is supposed to show? Well, if the timing is right the application will most likely crash with the above described error.
+
+In other words what happens is that the Activity will be going through its destruction when the background thread finishes its work and tries to show a Dialog.
+
+In this case it is almost certain that this should have been handled by the Virtual Machine. It should have recognized the fact that the Activity is in the process of finishing and not even attempted to show the Dialog. This is an oversight of the Google developers and it will probably be fixed some time in the future, but in the meantime the burden is on us to take care of this.
+
+The fix to this is pretty simple. Just test if the Activity is going through its finishing phase before displaying the Dialog:
+
+private Handler myHandler = new Handler() {
+@Override
+public void handleMessage(Message msg) {
+    switch (msg.what) {
+    case DISPLAY_DLG:
+        if (!isFinishing()) {
+        showDialog(MY_DIALOG);
+        }
+    break;
+    }
+}
+};
+</code></pre>
       
     </div>
     
