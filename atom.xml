@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-19T05:53:43.679Z</updated>
+  <updated>2018-04-23T06:44:40.960Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WindowManager&amp;BadTokenException:Unable to add window -- Token</title>
+    <link href="http://yoursite.com/2018/04/23/Unable-to-add-window/"/>
+    <id>http://yoursite.com/2018/04/23/Unable-to-add-window/</id>
+    <published>2018-04-23T06:24:23.000Z</published>
+    <updated>2018-04-23T06:44:40.960Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="详细的异常log"><a href="#详细的异常log" class="headerlink" title="详细的异常log"></a>详细的异常log</h4><p><a href="/images/BTE.jpep">BadTokenException</a></p><h4 id="发生场景"><a href="#发生场景" class="headerlink" title="发生场景"></a>发生场景</h4><p>   在异步任务执行完成后，调用了show dialog.</p><h4 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h4><pre><code>当异步任务完成后，调用该任务的activity可能处于被销毁或已销毁的阶段，即 `new Dialog(context)`所需的contex已不复存在。</code></pre><h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><pre><code>在调用dialog的时候判断activity是否isFinishing()<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!isFinishing())&#123;</span><br><span class="line">    showDialog();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;详细的异常log&quot;&gt;&lt;a href=&quot;#详细的异常log&quot; class=&quot;headerlink&quot; title=&quot;详细的异常log&quot;&gt;&lt;/a&gt;详细的异常log&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;/images/BTE.jpep&quot;&gt;BadTokenException&lt;/
+      
+    
+    </summary>
+    
+      <category term="Tech" scheme="http://yoursite.com/categories/Tech/"/>
+    
+    
+      <category term="Exception" scheme="http://yoursite.com/tags/Exception/"/>
+    
+      <category term="Dialog" scheme="http://yoursite.com/tags/Dialog/"/>
+    
+  </entry>
   
   <entry>
     <title>Redex  ---  Android 字节码优化器</title>
@@ -39,26 +66,6 @@
     
     
       <category term="Performance Optimization" scheme="http://yoursite.com/tags/Performance-Optimization/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2018/04/02/Unable-to-add-window/"/>
-    <id>http://yoursite.com/2018/04/02/Unable-to-add-window/</id>
-    <published>2018-04-02T14:25:23.000Z</published>
-    <updated>2018-04-23T06:09:17.501Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="Tech" scheme="http://yoursite.com/categories/Tech/"/>
-    
-    
-      <category term="Exception" scheme="http://yoursite.com/tags/Exception/"/>
-    
-      <category term="Dialog" scheme="http://yoursite.com/tags/Dialog/"/>
     
   </entry>
   
