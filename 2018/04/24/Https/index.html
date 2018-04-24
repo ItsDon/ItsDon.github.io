@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="本文涉及到的知识点  对称加密和非对称加密 签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验) TLS和SSL 单向认证和双向认证">
+<meta name="description" content="本文涉及到的知识点  对称加密和非对称加密 签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验) TLS和SSL 单向认证和双向认证 客户端根证书  Http &amp;amp;&amp;amp; HttpsHttp协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对">
 <meta name="keywords" content="Https">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对Https的认识">
 <meta property="og:url" content="http://yoursite.com/2018/04/24/Https/index.html">
 <meta property="og:site_name" content="Don">
-<meta property="og:description" content="本文涉及到的知识点  对称加密和非对称加密 签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验) TLS和SSL 单向认证和双向认证">
+<meta property="og:description" content="本文涉及到的知识点  对称加密和非对称加密 签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验) TLS和SSL 单向认证和双向认证 客户端根证书  Http &amp;amp;&amp;amp; HttpsHttp协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-04-24T12:10:01.000Z">
+<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/KyXfCrME6UJFk4ma5Y5g5wIeggZaCZ3xKYfzxv54kPQ9q9SKRPHpnVib9MF6MfPcLJgej3wicCVZSicUMNzoVasiaA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:updated_time" content="2018-04-24T13:20:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对Https的认识">
-<meta name="twitter:description" content="本文涉及到的知识点  对称加密和非对称加密 签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验) TLS和SSL 单向认证和双向认证">
+<meta name="twitter:description" content="本文涉及到的知识点  对称加密和非对称加密 签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验) TLS和SSL 单向认证和双向认证 客户端根证书  Http &amp;amp;&amp;amp; HttpsHttp协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对">
+<meta name="twitter:image" content="http://mmbiz.qpic.cn/mmbiz_png/KyXfCrME6UJFk4ma5Y5g5wIeggZaCZ3xKYfzxv54kPQ9q9SKRPHpnVib9MF6MfPcLJgej3wicCVZSicUMNzoVasiaA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
 
 
 
@@ -420,7 +422,20 @@
 <li>签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验)</li>
 <li>TLS和SSL</li>
 <li>单向认证和双向认证</li>
+<li>客户端根证书</li>
 </ul>
+<h2 id="Http-amp-amp-Https"><a href="#Http-amp-amp-Https" class="headerlink" title="Http &amp;&amp; Https"></a>Http &amp;&amp; Https</h2><p>Http协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。<br>简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对传输内容进行加密，这样就可以确保网络交互的安全。<br>Https的安全性体现在三个方面：</p>
+<ul>
+<li>对内容进行加密</li>
+<li>对交互方身份认证</li>
+<li>保证通信数据的完整性</li>
+</ul>
+<h2 id="TLS-SSL加密"><a href="#TLS-SSL加密" class="headerlink" title="TLS/SSL加密"></a>TLS/SSL加密</h2><h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><p>加密和解密采用相同的密钥，优点是速度快，加密效率高；缺点是交互双方协商的密钥一旦泄漏，双方的通信就不再安全</p>
+<h3 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h3><p>有一对密钥，分别是公钥和私钥，用公钥加密的内容只能用私钥解密，用私钥加密的内容只能用公钥解密；缺点是速度慢，效率比较低，尤其对于加密数据比较庞大时弊端更加明显</p>
+<h3 id="对称加密-非对称加密"><a href="#对称加密-非对称加密" class="headerlink" title="对称加密 + 非对称加密"></a>对称加密 + 非对称加密</h3><p>TLS协议采用的是对称和非对称结合的方式。首先的疑问是：两种加密方式会不会更慢？答案是不会，因为非对称加密只对对称加密的密钥进行加密，这样客户端就可以放心的把对称加密的密钥发送给服务器了，客户端与服务器短交互的内容是用对称加密的密钥来加密的。</p>
+<a id="more"></a>
+<h3 id="TLS握手流程"><a href="#TLS握手流程" class="headerlink" title="TLS握手流程"></a>TLS握手流程</h3><p>下图是整个握手流程的简图</p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz_png/KyXfCrME6UJFk4ma5Y5g5wIeggZaCZ3xKYfzxv54kPQ9q9SKRPHpnVib9MF6MfPcLJgej3wicCVZSicUMNzoVasiaA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="握手流程"></p>
 
       
     </div>
@@ -550,8 +565,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -631,6 +655,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Http-amp-amp-Https"><span class="nav-text">Http &amp;&amp; Https</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS-SSL加密"><span class="nav-text">TLS/SSL加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密"><span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非对称加密"><span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密-非对称加密"><span class="nav-text">对称加密 + 非对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TLS握手流程"><span class="nav-text">TLS握手流程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

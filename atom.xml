@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-24T12:10:01.000Z</updated>
+  <updated>2018-04-24T13:20:22.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,23 +21,29 @@
     <link href="http://yoursite.com/2018/04/24/Https/"/>
     <id>http://yoursite.com/2018/04/24/Https/</id>
     <published>2018-04-24T11:59:23.000Z</published>
-    <updated>2018-04-24T12:10:01.000Z</updated>
+    <updated>2018-04-24T13:20:22.000Z</updated>
     
-    <content type="html"><![CDATA[<p>本文涉及到的知识点</p><ul><li>对称加密和非对称加密</li><li>签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验)</li><li>TLS和SSL</li><li>单向认证和双向认证</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>本文涉及到的知识点</p><ul><li>对称加密和非对称加密</li><li>签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验)</li><li>TLS和SSL</li><li>单向认证和双向认证</li><li>客户端根证书</li></ul><h2 id="Http-amp-amp-Https"><a href="#Http-amp-amp-Https" class="headerlink" title="Http &amp;&amp; Https"></a>Http &amp;&amp; Https</h2><p>Http协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。<br>简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对传输内容进行加密，这样就可以确保网络交互的安全。<br>Https的安全性体现在三个方面：</p><ul><li>对内容进行加密</li><li>对交互方身份认证</li><li>保证通信数据的完整性</li></ul><h2 id="TLS-SSL加密"><a href="#TLS-SSL加密" class="headerlink" title="TLS/SSL加密"></a>TLS/SSL加密</h2><h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><p>加密和解密采用相同的密钥，优点是速度快，加密效率高；缺点是交互双方协商的密钥一旦泄漏，双方的通信就不再安全</p><h3 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h3><p>有一对密钥，分别是公钥和私钥，用公钥加密的内容只能用私钥解密，用私钥加密的内容只能用公钥解密；缺点是速度慢，效率比较低，尤其对于加密数据比较庞大时弊端更加明显</p><h3 id="对称加密-非对称加密"><a href="#对称加密-非对称加密" class="headerlink" title="对称加密 + 非对称加密"></a>对称加密 + 非对称加密</h3><p>TLS协议采用的是对称和非对称结合的方式。首先的疑问是：两种加密方式会不会更慢？答案是不会，因为非对称加密只对对称加密的密钥进行加密，这样客户端就可以放心的把对称加密的密钥发送给服务器了，客户端与服务器短交互的内容是用对称加密的密钥来加密的。</p><a id="more"></a><h3 id="TLS握手流程"><a href="#TLS握手流程" class="headerlink" title="TLS握手流程"></a>TLS握手流程</h3><p>下图是整个握手流程的简图</p><p><img src="http://mmbiz.qpic.cn/mmbiz_png/KyXfCrME6UJFk4ma5Y5g5wIeggZaCZ3xKYfzxv54kPQ9q9SKRPHpnVib9MF6MfPcLJgej3wicCVZSicUMNzoVasiaA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="握手流程"></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;本文涉及到的知识点&lt;/p&gt;
+      &lt;p&gt;本文涉及到的知识点&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;对称加密和非对称加密&lt;/li&gt;
 &lt;li&gt;签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验)&lt;/li&gt;
 &lt;li&gt;TLS和SSL&lt;/li&gt;
 &lt;li&gt;单向认证和双向认证&lt;/li&gt;
+&lt;li&gt;客户端根证书&lt;/li&gt;
 &lt;/ul&gt;
-
-      
+&lt;h2 id=&quot;Http-amp-amp-Https&quot;&gt;&lt;a href=&quot;#Http-amp-amp-Https&quot; class=&quot;headerlink&quot; title=&quot;Http &amp;amp;&amp;amp; Https&quot;&gt;&lt;/a&gt;Http &amp;amp;&amp;amp; Https&lt;/h2&gt;&lt;p&gt;Http协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。&lt;br&gt;简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对传输内容进行加密，这样就可以确保网络交互的安全。&lt;br&gt;Https的安全性体现在三个方面：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对内容进行加密&lt;/li&gt;
+&lt;li&gt;对交互方身份认证&lt;/li&gt;
+&lt;li&gt;保证通信数据的完整性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;TLS-SSL加密&quot;&gt;&lt;a href=&quot;#TLS-SSL加密&quot; class=&quot;headerlink&quot; title=&quot;TLS/SSL加密&quot;&gt;&lt;/a&gt;TLS/SSL加密&lt;/h2&gt;&lt;h3 id=&quot;对称加密&quot;&gt;&lt;a href=&quot;#对称加密&quot; class=&quot;headerlink&quot; title=&quot;对称加密&quot;&gt;&lt;/a&gt;对称加密&lt;/h3&gt;&lt;p&gt;加密和解密采用相同的密钥，优点是速度快，加密效率高；缺点是交互双方协商的密钥一旦泄漏，双方的通信就不再安全&lt;/p&gt;
+&lt;h3 id=&quot;非对称加密&quot;&gt;&lt;a href=&quot;#非对称加密&quot; class=&quot;headerlink&quot; title=&quot;非对称加密&quot;&gt;&lt;/a&gt;非对称加密&lt;/h3&gt;&lt;p&gt;有一对密钥，分别是公钥和私钥，用公钥加密的内容只能用私钥解密，用私钥加密的内容只能用公钥解密；缺点是速度慢，效率比较低，尤其对于加密数据比较庞大时弊端更加明显&lt;/p&gt;
+&lt;h3 id=&quot;对称加密-非对称加密&quot;&gt;&lt;a href=&quot;#对称加密-非对称加密&quot; class=&quot;headerlink&quot; title=&quot;对称加密 + 非对称加密&quot;&gt;&lt;/a&gt;对称加密 + 非对称加密&lt;/h3&gt;&lt;p&gt;TLS协议采用的是对称和非对称结合的方式。首先的疑问是：两种加密方式会不会更慢？答案是不会，因为非对称加密只对对称加密的密钥进行加密，这样客户端就可以放心的把对称加密的密钥发送给服务器了，客户端与服务器短交互的内容是用对称加密的密钥来加密的。&lt;/p&gt;
     
     </summary>
     
