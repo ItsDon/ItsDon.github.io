@@ -79,19 +79,21 @@
 
 
 
-<meta name="description" content="本文涉及到的知识点  对称加密和非对称加密 签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验) TLS和SSL 单向认证和双向认证 客户端根证书  Http &amp;amp;&amp;amp; HttpsHttp协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对">
+<meta name="description" content="本文是对Https原理整体的认识，没有对涉及到的技术和知识点展开深层次的阐述，后期有时间的情况下会逐步完善。 本文涉及到的知识点  对称加密和非对称加密 消息摘要 数字签名 数字证书(自签名证书和CA证书，自签名证书需要在客户端配置进行校验) TLS和SSL 单向认证和双向认证 CA根证书  Http &amp;amp;&amp;amp; HttpsHttp协议通信采用的明文传输内容，传输内容容易被截获，这样就很">
 <meta name="keywords" content="Https">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对Https的认识">
 <meta property="og:url" content="http://yoursite.com/2018/04/24/Https/index.html">
 <meta property="og:site_name" content="Don">
-<meta property="og:description" content="本文涉及到的知识点  对称加密和非对称加密 签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验) TLS和SSL 单向认证和双向认证 客户端根证书  Http &amp;amp;&amp;amp; HttpsHttp协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对">
+<meta property="og:description" content="本文是对Https原理整体的认识，没有对涉及到的技术和知识点展开深层次的阐述，后期有时间的情况下会逐步完善。 本文涉及到的知识点  对称加密和非对称加密 消息摘要 数字签名 数字证书(自签名证书和CA证书，自签名证书需要在客户端配置进行校验) TLS和SSL 单向认证和双向认证 CA根证书  Http &amp;amp;&amp;amp; HttpsHttp协议通信采用的明文传输内容，传输内容容易被截获，这样就很">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/KyXfCrME6UJFk4ma5Y5g5wIeggZaCZ3xKYfzxv54kPQ9q9SKRPHpnVib9MF6MfPcLJgej3wicCVZSicUMNzoVasiaA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2018-04-24T13:20:22.000Z">
+<meta property="og:image" content="http://yoursite.com/images/one-way.jpeg">
+<meta property="og:image" content="http://yoursite.com/images/two-way.jpeg">
+<meta property="og:updated_time" content="2018-04-25T10:03:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对Https的认识">
-<meta name="twitter:description" content="本文涉及到的知识点  对称加密和非对称加密 签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验) TLS和SSL 单向认证和双向认证 客户端根证书  Http &amp;amp;&amp;amp; HttpsHttp协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对">
+<meta name="twitter:description" content="本文是对Https原理整体的认识，没有对涉及到的技术和知识点展开深层次的阐述，后期有时间的情况下会逐步完善。 本文涉及到的知识点  对称加密和非对称加密 消息摘要 数字签名 数字证书(自签名证书和CA证书，自签名证书需要在客户端配置进行校验) TLS和SSL 单向认证和双向认证 CA根证书  Http &amp;amp;&amp;amp; HttpsHttp协议通信采用的明文传输内容，传输内容容易被截获，这样就很">
 <meta name="twitter:image" content="http://mmbiz.qpic.cn/mmbiz_png/KyXfCrME6UJFk4ma5Y5g5wIeggZaCZ3xKYfzxv54kPQ9q9SKRPHpnVib9MF6MfPcLJgej3wicCVZSicUMNzoVasiaA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
 
 
@@ -416,15 +418,18 @@
       
 
       
-        <p>本文涉及到的知识点</p>
+        <p>本文是对Https原理整体的认识，没有对涉及到的技术和知识点展开深层次的阐述，后期有时间的情况下会逐步完善。</p>
+<p>本文涉及到的知识点</p>
 <ul>
 <li>对称加密和非对称加密</li>
-<li>签名和证书(自签名证书和CA证书，自签名证书需要在APP端配置进行校验)</li>
+<li>消息摘要</li>
+<li>数字签名</li>
+<li>数字证书(自签名证书和CA证书，自签名证书需要在客户端配置进行校验)</li>
 <li>TLS和SSL</li>
 <li>单向认证和双向认证</li>
-<li>客户端根证书</li>
+<li>CA根证书</li>
 </ul>
-<h2 id="Http-amp-amp-Https"><a href="#Http-amp-amp-Https" class="headerlink" title="Http &amp;&amp; Https"></a>Http &amp;&amp; Https</h2><p>Http协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。<br>简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对传输内容进行加密，这样就可以确保网络交互的安全。<br>Https的安全性体现在三个方面：</p>
+<h2 id="Http-amp-amp-Https"><a href="#Http-amp-amp-Https" class="headerlink" title="Http &amp;&amp; Https"></a>Http &amp;&amp; Https</h2><p>Http协议通信采用的明文传输内容，传输内容容易被截获，这样就很不安全，所有Https就应用而生了。<br>简单来说，Https = Http + TLS/SSL,在Http的基础上用TLS协议对传输内容进行加密，这样就可以确保网络交互的安全。Http和Http使用的默认端口分别是80和443。<br>Https的安全性体现在三个方面：</p>
 <ul>
 <li>对内容进行加密</li>
 <li>对交互方身份认证</li>
@@ -436,6 +441,22 @@
 <a id="more"></a>
 <h3 id="TLS握手流程"><a href="#TLS握手流程" class="headerlink" title="TLS握手流程"></a>TLS握手流程</h3><p>下图是整个握手流程的简图</p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/KyXfCrME6UJFk4ma5Y5g5wIeggZaCZ3xKYfzxv54kPQ9q9SKRPHpnVib9MF6MfPcLJgej3wicCVZSicUMNzoVasiaA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="握手流程"></p>
+<h4 id="服务端的证书从哪里来？"><a href="#服务端的证书从哪里来？" class="headerlink" title="服务端的证书从哪里来？"></a>服务端的证书从哪里来？</h4><p>服务端的证书有两个来源</p>
+<ul>
+<li>从CA机构购买</li>
+<li>开发者创建自签名证书</li>
+</ul>
+<p>对于服务端使用自签名证书的情况，客户端需要手动配置，将该证书添加到受信任列表，否则客户端对服务器端认证不通过，这就是单向认证。<br>对于服务端使用CA证书的情况，客户端一般预置了CA的根证书，只要根证书的兼容性够强，它能覆盖的客户端就越多，因此就不用手动添加对服务端的证书信任了。</p>
+<h4 id="单向认证-amp-amp-双向认证"><a href="#单向认证-amp-amp-双向认证" class="headerlink" title="单向认证 &amp;&amp; 双向认证"></a>单向认证 &amp;&amp; 双向认证</h4><p>简单来说，单向认证是客户端验证服务端的身份，双向认证是服务端同时要验证客户端的身份。<br>一般应用都是用的单向认证，只有对于安全级别要求较高的应用或场景才使用双向认证。</p>
+<p>单向认证</p>
+<p><img src="/images/one-way.jpeg" alt="单向认证"></p>
+<p>双向认证</p>
+<p><img src="/images/two-way.jpeg" alt="双向认证"></p>
+<p>以上两张图片来源：<a href="https://blog.csdn.net/duanbokan/article/details/50847612" target="_blank" rel="noopener">Https单向认证和双向认证</a></p>
+<h2 id="消息摘要-–-Message-Digest"><a href="#消息摘要-–-Message-Digest" class="headerlink" title="消息摘要 – Message Digest"></a>消息摘要 – Message Digest</h2><p>消息摘要就是对一个消息进行hash算法而得到的一个固定长度的唯一的字符串，如果消息被篡改了，那么消息摘要也要发生变化，所以消息摘要可以用来验证消息的完整性。常用的hash算法有SHA、MD5等。</p>
+<h2 id="数字签名-–-Signature"><a href="#数字签名-–-Signature" class="headerlink" title="数字签名 – Signature"></a>数字签名 – Signature</h2><p>服务端用私钥对消息摘要加密得到一个加密的字符串，这就是数字签名字符串，数字签名技术由非对称加密和消息摘要组合而成。</p>
+<h2 id="数字证书-–-Certificate"><a href="#数字证书-–-Certificate" class="headerlink" title="数字证书 – Certificate"></a>数字证书 – Certificate</h2><p>数字证书由数字签名、公钥、证书的发布机构、证书的过期日期等信息组成</p>
+<h2 id="根证书-–-Root-Certificate"><a href="#根证书-–-Root-Certificate" class="headerlink" title="根证书 – Root Certificate"></a>根证书 – Root Certificate</h2><p>根证书是CA认证中心签发的数字证书，它能够代表CA机构的身份。 安装根证书代表受CA认证中心的信任。 根证书的签发者是它自己本身，下载根证书说明您对该根证书以下所签发的证书都表示信任。</p>
 
       
     </div>
@@ -665,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Http-amp-amp-Https"><span class="nav-text">Http &amp;&amp; Https</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS-SSL加密"><span class="nav-text">TLS/SSL加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密"><span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非对称加密"><span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密-非对称加密"><span class="nav-text">对称加密 + 非对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TLS握手流程"><span class="nav-text">TLS握手流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Http-amp-amp-Https"><span class="nav-text">Http &amp;&amp; Https</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS-SSL加密"><span class="nav-text">TLS/SSL加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密"><span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非对称加密"><span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密-非对称加密"><span class="nav-text">对称加密 + 非对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TLS握手流程"><span class="nav-text">TLS握手流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端的证书从哪里来？"><span class="nav-text">服务端的证书从哪里来？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单向认证-amp-amp-双向认证"><span class="nav-text">单向认证 &amp;&amp; 双向认证</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息摘要-–-Message-Digest"><span class="nav-text">消息摘要 – Message Digest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字签名-–-Signature"><span class="nav-text">数字签名 – Signature</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字证书-–-Certificate"><span class="nav-text">数字证书 – Certificate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根证书-–-Root-Certificate"><span class="nav-text">根证书 – Root Certificate</span></a></li></ol></div>
             
 
           </div>
