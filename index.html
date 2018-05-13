@@ -242,6 +242,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/android8-background-location-limit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Don">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar-don.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Don">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/11/android8-background-location-limit/" itemprop="url">Android 8.0 后台位置限制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-11T14:44:14+08:00">
+                2018-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/11/android8-background-location-limit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/11/android8-background-location-limit/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/11/android8-background-location-limit/" class="leancloud_visitors" data-flag-title="Android 8.0 后台位置限制">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>客户反映在Android 8.0手机上，当应用锁屏或者按Home键处于后台的情况下，Goolgle地图当前实时位置更新失败。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p> 为了减少电量消耗，Android 8.0会限制处于后台应用获取当前位置的频率，而且不论当前应用的目标SDK是哪个版本。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Important note : As a starting point, we only allow the background app to receive location updates several times an hour. We will continue to optimize the location update interval based on system impact and developer feedback throughout the preview period.</span><br></pre></td></tr></table></figure>
+<p> 处于后台的应用只能实现一个小时几次的实时位置更新,当应用处于前台，实时位置更新功能和低版本的一样，不会受到次数限制。<br> 对于需要频繁获取实时位置的应用，Google对此提供了优化办法。</p>
+<h2 id="优化应用位置获取"><a href="#优化应用位置获取" class="headerlink" title="优化应用位置获取"></a>优化应用位置获取</h2><p>  通过执行下列操作之一来提高位置更新的检索频率：</p>
+<ul>
+<li><p>将应用转至前台</p>
+</li>
+<li><p>在应用中使用<a href="https://developer.android.com/guide/components/services#Foreground" target="_blank" rel="noopener">前台服务</a>.需要注意的是当激活该服务的时候，需要在通知栏显示一个持续的<a href="https://developer.android.com/guide/topics/ui/notifiers/notifications" target="_blank" rel="noopener">通知</a>。</p>
+</li>
+<li><p>使用Geofencing(<code>GeofencingApi</code>接口)之类的API,google对这些api进行了优化以尽可能减少电量消耗。</p>
+</li>
+<li><p>使用被动定位监听器，它可以增加位置更新的获取频率</p>
+</li>
+</ul>
+<h2 id="受影响的APIs"><a href="#受影响的APIs" class="headerlink" title="受影响的APIs"></a>受影响的APIs</h2><p>当应用处于后台，一下api会受到影响</p>
+<ul>
+<li><p>Fused Location Provider(FLP)</p>
+</li>
+<li><p>Geofencing</p>
+</li>
+<li><p>GNSS Measurements and GNSS Navigation Messages`</p>
+</li>
+<li><p>Location Manager</p>
+</li>
+</ul>
+<p><a href="https://developer.android.com/about/versions/oreo/background-location-limits" target="_blank" rel="noopener">官网链接</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/11/android8-background-location-limit/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/Https/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1478,7 +1672,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1500,7 +1694,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

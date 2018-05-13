@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Git," />
+  <meta name="keywords" content="Android 8.0," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="工作中最常用的git命令  查看当前分支改动1git status branch列出当前项目本地分支1git branch 列出当前项目所有分支1git branch -a 基于当前分支创建分支x1git branch x 删除本地分支1git branch -D x">
-<meta name="keywords" content="Git">
+<meta name="description" content="问题客户反映在Android 8.0手机上，当应用锁屏或者按Home键处于后台的情况下，Goolgle地图当前实时位置更新失败。 原因 为了减少电量消耗，Android 8.0会限制处于后台应用获取当前位置的频率，而且不论当前应用的目标SDK是哪个版本。  1Important note : As a starting point, we only allow the background app">
+<meta name="keywords" content="Android 8.0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 常用命令">
-<meta property="og:url" content="http://yoursite.com/2018/04/02/Git common/index.html">
+<meta property="og:title" content="Android 8.0 后台位置限制">
+<meta property="og:url" content="http://yoursite.com/2018/05/11/android8-background-location-limit/index.html">
 <meta property="og:site_name" content="Don">
-<meta property="og:description" content="工作中最常用的git命令  查看当前分支改动1git status branch列出当前项目本地分支1git branch 列出当前项目所有分支1git branch -a 基于当前分支创建分支x1git branch x 删除本地分支1git branch -D x">
+<meta property="og:description" content="问题客户反映在Android 8.0手机上，当应用锁屏或者按Home键处于后台的情况下，Goolgle地图当前实时位置更新失败。 原因 为了减少电量消耗，Android 8.0会限制处于后台应用获取当前位置的频率，而且不论当前应用的目标SDK是哪个版本。  1Important note : As a starting point, we only allow the background app">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-04-03T01:31:21.000Z">
+<meta property="og:updated_time" content="2018-05-13T00:28:01.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 常用命令">
-<meta name="twitter:description" content="工作中最常用的git命令  查看当前分支改动1git status branch列出当前项目本地分支1git branch 列出当前项目所有分支1git branch -a 基于当前分支创建分支x1git branch x 删除本地分支1git branch -D x">
+<meta name="twitter:title" content="Android 8.0 后台位置限制">
+<meta name="twitter:description" content="问题客户反映在Android 8.0手机上，当应用锁屏或者按Home键处于后台的情况下，Goolgle地图当前实时位置更新失败。 原因 为了减少电量消耗，Android 8.0会限制处于后台应用获取当前位置的频率，而且不论当前应用的目标SDK是哪个版本。  1Important note : As a starting point, we only allow the background app">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/02/Git common/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/11/android8-background-location-limit/"/>
 
 
 
 
 
-  <title>git 常用命令 | Don</title>
+  <title>Android 8.0 后台位置限制 | Don</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/Git common/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/android8-background-location-limit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Don">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git 常用命令</h1>
+          <h1 class="post-title" itemprop="name headline">Android 8.0 后台位置限制</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T22:25:23+08:00">
-                2018-04-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-11T14:44:14+08:00">
+                2018-05-11
               </time>
             
 
@@ -313,9 +313,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/02/Git common/#comments" itemprop="discussionUrl">
+                <a href="/2018/05/11/android8-background-location-limit/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/02/Git common/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/05/11/android8-background-location-limit/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -323,7 +323,7 @@
 
           
           
-             <span id="/2018/04/02/Git common/" class="leancloud_visitors" data-flag-title="git 常用命令">
+             <span id="/2018/05/11/android8-background-location-limit/" class="leancloud_visitors" data-flag-title="Android 8.0 后台位置限制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -354,35 +354,38 @@
       
 
       
-        <p>工作中最常用的git命令</p>
-<p> 查看当前分支改动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
-<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><p>列出当前项目本地分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure></p>
-<p>列出当前项目所有分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure></p>
-<p>基于当前分支创建分支x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch x</span><br></pre></td></tr></table></figure></p>
-<p>删除本地分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D x</span><br></pre></td></tr></table></figure></p>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>客户反映在Android 8.0手机上，当应用锁屏或者按Home键处于后台的情况下，Goolgle地图当前实时位置更新失败。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p> 为了减少电量消耗，Android 8.0会限制处于后台应用获取当前位置的频率，而且不论当前应用的目标SDK是哪个版本。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Important note : As a starting point, we only allow the background app to receive location updates several times an hour. We will continue to optimize the location update interval based on system impact and developer feedback throughout the preview period.</span><br></pre></td></tr></table></figure>
+<p> 处于后台的应用只能实现一个小时几次的实时位置更新,当应用处于前台，实时位置更新功能和低版本的一样，不会受到次数限制。<br> 对于需要频繁获取实时位置的应用，Google对此提供了优化办法。</p>
+<h2 id="优化应用位置获取"><a href="#优化应用位置获取" class="headerlink" title="优化应用位置获取"></a>优化应用位置获取</h2><p>  通过执行下列操作之一来提高位置更新的检索频率：</p>
+<ul>
+<li><p>将应用转至前台</p>
+</li>
+<li><p>在应用中使用<a href="https://developer.android.com/guide/components/services#Foreground" target="_blank" rel="noopener">前台服务</a>.需要注意的是当激活该服务的时候，需要在通知栏显示一个持续的<a href="https://developer.android.com/guide/topics/ui/notifiers/notifications" target="_blank" rel="noopener">通知</a>。</p>
+</li>
+<li><p>使用Geofencing(<code>GeofencingApi</code>接口)之类的API,google对这些api进行了优化以尽可能减少电量消耗。</p>
+</li>
+<li><p>使用被动定位监听器，它可以增加位置更新的获取频率</p>
+</li>
+</ul>
+<h2 id="受影响的APIs"><a href="#受影响的APIs" class="headerlink" title="受影响的APIs"></a>受影响的APIs</h2><p>当应用处于后台，一下api会受到影响</p>
+<ul>
+<li><p>Fused Location Provider(FLP)</p>
+</li>
+<li><p>Geofencing</p>
+</li>
+<li><p>GNSS Measurements and GNSS Navigation Messages`</p>
+</li>
+<li><p>Location Manager</p>
+</li>
+</ul>
+<p><a href="https://developer.android.com/about/versions/oreo/background-location-limits" target="_blank" rel="noopener">官网链接</a></p>
 <a id="more"></a>
-<p>创建并切换到分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -b x</span><br></pre></td></tr></table></figure></p>
-<p>删除远端分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete x</span><br></pre></td></tr></table></figure></p>
-<p>撤销某个文件的改动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout x</span><br></pre></td></tr></table></figure></p>
-<p>撤销所有文件改动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure></p>
-<p>撤销git add .操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD .</span><br></pre></td></tr></table></figure></p>
-<p>push所有分支到远端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --all</span><br></pre></td></tr></table></figure></p>
-<p> 在本地创建与远端对应的名称一样的分支<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout --track origin/x</span><br></pre></td></tr></table></figure></p>
-<p>  在本地创建与远端对应的名称为xx的分支<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout --track xx origin/x</span><br></pre></td></tr></table></figure></p>
-<h3 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h3><p>暂存当前分支的改动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure></p>
-<p>  恢复当前分支暂存的改动<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure></p>
-<h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3><p>查看当前项目的所有tag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure></p>
-<p>查看某个tag信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show tagName</span><br></pre></td></tr></table></figure></p>
-<p>  给当前分支的当前commit打标签，方便以后版本回退<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a v1.1.1 -m &quot;publish version 1.1.1&quot;</span><br></pre></td></tr></table></figure></p>
-<p> 回退到某个commit对应的版本<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard xx (xx代表某次commit的hash值的前6位)</span><br></pre></td></tr></table></figure></p>
-<p> 提交所有tag到仓库<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --all tags</span><br></pre></td></tr></table></figure></p>
-<p> 提交某个tag到远端<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin tagName</span><br></pre></td></tr></table></figure></p>
-<p>删除本地tag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d tagName</span><br></pre></td></tr></table></figure></p>
-<p> 删除远端tag<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :refs/tags/xx</span><br></pre></td></tr></table></figure></p>
-<h3 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h3><p>查看当前git仓库远端地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure></p>
-<p>删除当前git仓库的远端地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure></p>
-<p>为本地仓库添加远端地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@xxx</span><br></pre></td></tr></table></figure></p>
-<p>修改当前仓库的远程地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@xxx</span><br></pre></td></tr></table></figure></p>
+<h2 id="代码实践"><a href="#代码实践" class="headerlink" title="代码实践"></a>代码实践</h2><p> 在应用中启动一个<code>Foreground Service</code>来提高实时位置获取频率，本应用使用<code>Fused Location Provider</code>获取当前定位</p>
+<h3 id="创建一个前台服务"><a href="#创建一个前台服务" class="headerlink" title="创建一个前台服务"></a>创建一个前台服务</h3> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KeepAliveService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"KeepAliveService"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        LogUtil.e(TAG,<span class="string">"onCreate"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(intent == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent, flags, startId);</span><br><span class="line">        postNotification();</span><br><span class="line">        LogUtil.e(TAG,<span class="string">"onStartCommand"</span>);</span><br><span class="line">        <span class="keyword">return</span> START_REDELIVER_INTENT;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        LogUtil.e(TAG,<span class="string">"onBind"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">postNotification</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, MapActivity.class);</span><br><span class="line">        Intent[] intents = <span class="keyword">new</span> Intent[<span class="number">1</span>];</span><br><span class="line">        intents[<span class="number">0</span>]  = intent;</span><br><span class="line">        PendingIntent notificationPendingIntent = PendingIntent.getActivities(<span class="keyword">this</span>, <span class="number">0</span>, intents, PendingIntent.FLAG_UPDATE_CURRENT);</span><br><span class="line">        Notification notification = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>, NotificationChannel.DEFAULT_CHANNEL_ID)</span><br><span class="line">                .setSmallIcon(R.drawable.pippa_smallicon)</span><br><span class="line">                .setContentTitle(<span class="string">"PiPPA"</span>)</span><br><span class="line">                .setContentIntent(notificationPendingIntent)</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        startForeground(<span class="number">110</span>, notification);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        LogUtil.e(TAG,<span class="string">"onDestroy"</span>);</span><br><span class="line">        stopForeground(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="在AndroidManifest-xml文件中配置"><a href="#在AndroidManifest-xml文件中配置" class="headerlink" title="在AndroidManifest.xml文件中配置"></a>在AndroidManifest.xml文件中配置</h3> <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- custom service : keep alive--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">service</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:name</span>=<span class="string">"com.easybike.service.KeepAliveService"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">android:enabled</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"updateSystem"</span> /&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="在MapActivity中开启服务"><a href="#在MapActivity中开启服务" class="headerlink" title="在MapActivity中开启服务"></a>在MapActivity中开启服务</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">       ...</span><br><span class="line">        startKeepAliveService();</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startKeepAliveService</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;</span><br><span class="line">            LogUtil.e(TAG,<span class="string">"startKeepAliveService"</span>);</span><br><span class="line">            startForegroundService(<span class="keyword">new</span> Intent(<span class="keyword">this</span>, KeepAliveService.class));</span><br><span class="line"><span class="comment">//            startServ、ice(new Intent(this, KeepAliveService.class));</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        ...</span><br><span class="line">        stopService(<span class="keyword">new</span> Intent(<span class="keyword">this</span>,KeepAliveService.class));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -429,7 +432,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/Android-8-0/" rel="tag"># Android 8.0</a>
           
         </div>
       
@@ -442,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/02/Upgrade-Android-Studio/" rel="next" title="Upgrade Android Studio">
-                <i class="fa fa-chevron-left"></i> Upgrade Android Studio
+              <a href="/2018/04/24/Https/" rel="next" title="对Https的认识">
+                <i class="fa fa-chevron-left"></i> 对Https的认识
               </a>
             
           </div>
@@ -451,10 +454,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/19/Redex：Androd 字节码优化器/" rel="prev" title="Redex  ---  Android 字节码优化器">
-                Redex  ---  Android 字节码优化器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -616,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#branch"><span class="nav-text">branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stash"><span class="nav-text">stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tag"><span class="nav-text">tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remote"><span class="nav-text">remote</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化应用位置获取"><span class="nav-text">优化应用位置获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#受影响的APIs"><span class="nav-text">受影响的APIs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实践"><span class="nav-text">代码实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个前台服务"><span class="nav-text">创建一个前台服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在AndroidManifest-xml文件中配置"><span class="nav-text">在AndroidManifest.xml文件中配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在MapActivity中开启服务"><span class="nav-text">在MapActivity中开启服务</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -799,9 +798,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/04/02/Git common/';
-          this.page.identifier = '2018/04/02/Git common/';
-          this.page.title = 'git 常用命令';
+          this.page.url = 'http://yoursite.com/2018/05/11/android8-background-location-limit/';
+          this.page.identifier = '2018/05/11/android8-background-location-limit/';
+          this.page.title = 'Android 8.0 后台位置限制';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://qiaodong.disqus.com/embed.js';
